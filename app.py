@@ -46,6 +46,12 @@ roles = {
     ]
 }
 
+# ✅ Home route for testing if live
+@app.route('/', methods=['GET'])
+def home():
+    return "✅ Smart Resume Analyzer Backend is LIVE!"
+
+# ✅ Resume analyzer route
 @app.route('/analyze', methods=['POST'])
 def analyze_resume():
     file = request.files['file']
@@ -78,6 +84,7 @@ def analyze_resume():
         }
     })
 
+# ✅ Start server (Render-compatible)
 if __name__ == '__main__':
     if not os.path.exists("uploads"):
         os.makedirs("uploads")
